@@ -1,0 +1,21 @@
+[
+{
+"link": "Home",
+ "url": "https://tip4programs.github.io/",
+ "icon": "fa-home"
+ },
+ {
+"link": "About",
+ "url": "/about",
+ "icon": "fa-comments"
+ },
+ {
+"link": "Project",
+ "url": "/project",
+ "icon": "fa-desktop"
+ },{
+"link": "Resume",
+ "url": "https://tip4programs.github.io/",
+ "icon": "fa-street-view"
+ }
+ ]
