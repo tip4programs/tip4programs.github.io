@@ -4,7 +4,7 @@
     <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
     {% for y in site.data.navbar %}
     <a href="{{ y.url }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><i class="fa {{ y.icon }} fa-2x"></i>{{ y.link }}</a>
-
+    {% endfor %}
   </div>
 
   <!-- Navbar on small screens -->
