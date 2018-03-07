@@ -1,7 +1,7 @@
 [
 {
 "link": "Home",
- "url": "https://tip4programs.github.io/",
+ "url": "/",
  "icon": "fa-home"
  },
  {
@@ -15,7 +15,7 @@
  "icon": "fa-desktop"
  },{
 "link": "Resume",
- "url": "https://tip4programs.github.io/",
+ "url": "/resume",
  "icon": "fa-street-view"
  }
  ]
