@@ -1,3 +1,8 @@
 title: Tip4programs
 baseurl: "/"
 url: "https://tip4programs.github.io"
+markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate, jekyll-gist]
+paginate: 6
+paginate_path: "/blog/page:num/"
