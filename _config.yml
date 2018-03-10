@@ -6,3 +6,4 @@ highlighter: rouge
 gems: [jekyll-paginate, jekyll-gist]
 paginate: 6
 paginate_path: "/blog/page:num/"
+disqus_shortname: tip4programs
