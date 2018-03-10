@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<h3 class="w3-text-red w3-center">{{ page.title }}</h3>
+<article>
+{{ content }}
+</article>
+<hr />
+<div class="w3-container">
+    <!-- tag cloud -->
+	<i class="fas fa-tags fa-lg" aria-hidden="true"></i><h4 style="display:inline">Posts is tagged on:</h4>
+        <ul class="taggs">
+         {% for tag in page.tags %}
+         <li><a href="{{ site.baseurl }}/tags#{{ tag | slugify }}" class="tagg">{{ tag }}</a></li>
+      {% endfor %}
+     </ul>
+     
+     <!-- post by category -->
+     
+ {% assign hasSimilar = '' %}
+{% for post in site.posts  %}
+    {% assign postHasSimilar = false %}
+    {% for tag in post.category %}
+        {% for thisTag in page.category %}
+            {% if postHasSimilar == false and hasSimilar.size < 6 and post != page and tag == thisTag %}
+                {% if hasSimilar.size == 0 %}                                      
+                <h4>Related Posts</h4>
+                <ul class="w3-ul" id="myLink">
+                {% endif %}
+                <li>
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                    {% if post.category %}
+                        <small>(Category: {% for category in post.category %}<a href="{{ site.baseurl }}/category/{{ category }}">{{ category }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %})</small>
+                    {% endif %}
+                </li>
+                {% capture hasSimilar %}{{ hasSimilar }}*{% endcapture %}
+                {% assign postHasSimilar = true %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+{% if hasSimilar.size > 0 %}
+    </ul>
+{% endif %}
+<div class="w3-bar w3-round">
+  {% if page.previous.url %}
+    <a class="w3-button w3-red" href="{{ site.baseurl }}{{ page.previous.url }}">&laquo; Previous</a>
+  {% endif %}
+  {% if page.next.url %}
+    <a class="w3-button w3-right w3-red" href="{{ site.baseurl }}{{ page.next.url }}">Next &raquo;</a>
+  {% endif %}
+</div>
+
+<!-- comment -->
+
+<div class="disqus-comments">
+   <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "{{ site.url }}{{ site.baseurl }}{{ page.url }}";
+      this.page.identifier = "{{ site.baseurl }}{{ page.url }}";
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = '//{{ site.disqus_shortname }}.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+    </div>
+    </div>
